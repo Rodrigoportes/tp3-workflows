@@ -1,0 +1,1 @@
+[![1.3 Maven CI Pipeline](https://github.com/Rodrigoportes/tp3-workflows/actions/workflows/maven-ci.yml/badge.svg)](https://github.com/Rodrigoportes/tp3-workflows/actions/workflows/maven-ci.yml)
