@@ -1,12 +1,15 @@
-# .github/workflows/env-demo.yml (Corrigido)
-name: 2.1 Environment Variable Demo
-on: [push]
+name: env-demo
+
+on:
+  push:
 
 jobs:
   set-env:
     runs-on: ubuntu-latest
     env:
       DEPLOY_ENV: staging
+
     steps:
       - name: Display Environment Variable # Nível 1
-        run: echo "A variável DEPLOY_ENV está configurada como: ${{ env.DEPLOY_ENV }}" # Nível 1
+        run: |
+          echo "A variável DEPLOY_ENV está configurada como: ${{ env.DEPLOY_ENV }}"
