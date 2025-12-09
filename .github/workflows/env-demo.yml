@@ -1,0 +1,12 @@
+name: 2.1 Environment Variable Demo
+
+on: [push]
+
+jobs:
+  set-env:
+    runs-on: ubuntu-latest
+    env:
+      DEPLOY_ENV: staging
+    steps:
+      - name: Display Environment Variable
+        run: echo "A variável DEPLOY_ENV está configurada como: ${{ env.DEPLOY_ENV }}"
