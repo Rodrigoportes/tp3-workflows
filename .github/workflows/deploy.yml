@@ -1,0 +1,42 @@
+name: 5.0 Deploy Pipeline Integrado
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Environment Variable
+        id: set_env
+        run: |
+          echo "DEPLOY_ENVIRONMENT=staging" >> $GITHUB_OUTPUT 
+
+    outputs:
+      DEPLOY_ENV: ${{ steps.set_env.outputs.DEPLOY_ENVIRONMENT }}
+
+  deploy:
+    needs: setup
+    runs-on: ubuntu-latest
+    environment: staging
+
+    env:
+      API_TOKEN: ${{ secrets.MY_SECRET }}
+      DEPLOY_ENV: ${{ needs.setup.outputs.DEPLOY_ENV }}
+
+    steps:
+      - name: Check Credentials
+        run: |
+          echo "Credenciais carregadas. TOKEN: ${API_TOKEN}"
+          # Secret continua mascarado
+
+      - name: Deploy to Staging Logic
+        if: "${{ env.DEPLOY_ENV == 'staging' }}"
+        run:
+          echo "Deploy em staging concluído - Ambiente: ${{ env.DEPLOY_ENV }}"
+
+      - name: Deploy to Prod Logic
+        if: "${{ env.DEPLOY_ENV == 'prod' }}"
+        run:
+          echo "Deploy em produção concluído - Ambiente: ${{ env.DEPLOY_ENV }}"
