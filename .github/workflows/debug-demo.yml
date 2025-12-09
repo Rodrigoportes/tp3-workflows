@@ -1,0 +1,13 @@
+# .github/workflows/debug-demo.yml
+name: 4.2 Debug Logs Demo
+on: [push]
+
+jobs:
+  debug-job:
+    runs-on: ubuntu-latest
+    env:
+      # Variável de ambiente para ativar o log de debug
+      ACTIONS_RUNNER_DEBUG: true
+    steps:
+      - name: Simple Step
+        run: echo "Executando passo com debug ativado"
