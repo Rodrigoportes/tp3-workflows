@@ -1,0 +1,9 @@
+name: 1.1 Hello CI/CD Workflow
+on: [push] # Roda em qualquer push (requisito)
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display Hello CI/CD
+        run: echo "Hello CI/CD" # Exibe "Hello CI/CD" (requisito)
