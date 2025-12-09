@@ -1,0 +1,12 @@
+name: 1.2 Run Tests on PR
+on:
+  pull_request: #
+    branches: [ "main" ]
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Execute Tests Simulation
+        run: echo "Rodando testes" 
