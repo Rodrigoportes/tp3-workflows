@@ -1,0 +1,12 @@
+# .github/workflows/release-deploy.yml
+name: 3.1 Release Deploy Workflow
+on:
+  release: # Gatilho para quando um Release é publicado (requisito)
+    types: [published]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute Deploy Message
+        run: echo "Deploy realizado com sucesso" # Mensagem de execução (requisito)
