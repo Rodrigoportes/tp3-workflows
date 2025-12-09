@@ -8,5 +8,5 @@ jobs:
     env:
       DEPLOY_ENV: staging
     steps:
-      - name: Display Environment Variable
-        run: echo "A variável DEPLOY_ENV está configurada como: ${{ env.DEPLOY_ENV }}"
+      - name: Display Environment Variable # Nível 1
+        run: echo "A variável DEPLOY_ENV está configurada como: ${{ env.DEPLOY_ENV }}" # Nível 1
